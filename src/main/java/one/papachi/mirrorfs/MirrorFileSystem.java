@@ -26,7 +26,7 @@ public class MirrorFileSystem implements VirtualFileSystem {
         String from = args[0];
         String to = args[1];
         switch (Utils.getOperatingSystemFamily()) {
-            case UNKNOWN -> {
+            case WINDOWS -> {
                 MirrorFileSystem vfs = new MirrorFileSystem(Path.of(from));
                 DokanyFileSystem dokanyFileSystem = new DokanyFileSystem(vfs);
                 Runtime.getRuntime().addShutdownHook(new Thread(() -> Dokany4j.unmount(to)));
